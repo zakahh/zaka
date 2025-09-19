@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Hidaya ❤️</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #ff6699;
+      font-size: 2.5em;
+    }
+    .question {
+      margin: 20px;
+      font-size: 1.5em;
+      color: #ff3366;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      background-color: #ff6699;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ff3366;
+    }
+    #message {
+      margin-top: 40px;
+      font-size: 1.8em;
+      color: #ff3366;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 For My Lovely Hidaya 🌸</h1>
+  <p>Answer these cute questions 💖</p>
+
+  <div id="quiz"></div>
+
+  <p id="message">💌 Hidaya, you are my sunshine, my happiness, and my forever love. I love you endlessly ❤️</p>
+
+  <script>
+    const questions = [
+      "Do you love cats? 🐱",
+      "Do you like Hello Kitty? 🎀",
+      "Do you love sunsets? 🌅",
+      "Do you love ice cream with me? 🍦",
+      "Do you like romantic walks? 🌸",
+      "Do you love surprises? 🎁",
+      "Do you like when I make you smile? 😊",
+      "Do you love cuddles? 🤗",
+      "Do you think we’re soulmates? 💕",
+      "Do you know how much I love you? ❤️"
+    ];
+
+    let current = 0;
+    const quizDiv = document.getElementById('quiz');
+    const message = document.getElementById('message');
+
+    function showQuestion() {
+      if (current < questions.length) {
+        quizDiv.innerHTML = `
+          <div class="question">${questions[current]}</div>
+          <button onclick="nextQuestion()">Yes 💖</button>
+          <button onclick="nextQuestion()">Of course 💕</button>
+        `;
+      } else {
+        quizDiv.innerHTML = "";
+        message.style.display = 'block';
+      }
+    }
+
+    function nextQuestion() {
+      current++;
+      showQuestion();
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
