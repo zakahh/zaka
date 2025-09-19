@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Hidaya: A Cute Kitty Love Letter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #ffe6f2;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: #fff0fa;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px #f7b6ea;
+      max-width: 350px;
+      padding: 32px 16px 24px 16px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .kitty-img {
+      width: 120px;
+      margin-bottom: 16px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #f7c6ea;
+      background: #fff;
+      overflow: hidden;
+      animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+      to {
+        transform: translateY(-6px) scale(1.05);
+      }
+    }
+    .btn {
+      background: linear-gradient(90deg, #ffb6c1 30%, #ffc8e0 100%);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 12px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 18px 0 0 0;
+      box-shadow: 0 2px 8px #f7b6ea;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #ffc8e0 30%, #ffb6c1 100%);
+    }
+    .message {
+      font-size: 20px;
+      color: #e05780;
+      margin-top: 24px;
+      font-weight: bold;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .love-cat {
+      width: 90px;
+      margin: 8px 4px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #f7d6fa;
+      vertical-align: middle;
+      background: #fff;
+      animation: bounce 1s infinite alternate;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="kitty-img" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG65.png" alt="Hello Kitty">
+    <h2>Hi Hidaya! 💖</h2>
+    <div id="story"></div>
+    <button class="btn" id="nextBtn">Start</button>
+    <div id="finalMessage" style="display:none;"></div>
+  </div>
+
+  <script>
+    const storyLines = [
+      "Once upon a time, in a world filled with cute kitties 🐾,",
+      "There was someone extra special... you, Hidaya! 😻",
+      "Every day, Hello Kitty and the cats gather to celebrate your smile.",
+      "They purr, dance, and bring you joy because you make hearts flutter! 💕",
+      "No matter what, you are loved more than all the cute cats in the universe.",
+      "Ready for a surprise from the kitties?"
+    ];
+
+    const finalMessage = `
+      <div>
+        <img class="love-cat" src="https://pngimg.com/uploads/cat/cat_PNG50524.png" alt="Cute Cat">
+        <img class="love-cat" src="https://pngimg.com/uploads/cat/cat_PNG50497.png" alt="Cute Cat">
+      </div>
+      <div class="message">
+        Hidaya, every day with you is the sweetest adventure.<br>
+        I love you more than all the cute kitties in the world! 💗<br>
+        Will you always be my Hello Kitty?
+      </div>
+      <div>
+        <img class="love-cat" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG65.png" alt="Hello Kitty">
+      </div>
+    `;
+
+    let currentLine = 0;
+    const storyDiv = document.getElementById('story');
+    const nextBtn = document.getElementById('nextBtn');
+    const finalDiv = document.getElementById('finalMessage');
+
+    nextBtn.onclick = function() {
+      if (currentLine < storyLines.length) {
+        storyDiv.innerHTML += `<p>${storyLines[currentLine]}</p>`;
+        nextBtn.textContent = currentLine === storyLines.length - 1 ? "Show Surprise!" : "Next";
+        currentLine++;
+      } else {
+        document.querySelector('.kitty-img').style.display = 'none';
+        nextBtn.style.display = 'none';
+        storyDiv.style.display = 'none';
+        finalDiv.innerHTML = finalMessage;
+        finalDiv.style.display = 'block';
+      }
+    };
+  </script>
+</body>
+</html>
